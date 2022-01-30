@@ -24,13 +24,13 @@
   opacity: 0.9;
 }
 .image{
-  background-color: forestgreen;
   border: rgb(255, 255, 255) .5rem solid;
   height: 50%;
   width: 50%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
+  /* background-size: 100% 100%; */
 }
 .image button{
   display: flex;
