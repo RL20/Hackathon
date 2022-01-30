@@ -693,3 +693,5 @@ const data = [
     origin: "עיראקי",
   },
 ];
+
+module.exports = data;
