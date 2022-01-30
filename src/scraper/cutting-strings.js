@@ -35,3 +35,6 @@ cutStrings(testString2,VAL2);
 cutStrings(testString3,VAL);
 cutStrings(testString4,VAL);
 cutStrings(testString5,VAL2);
+
+
+module.exports = cutStrings;

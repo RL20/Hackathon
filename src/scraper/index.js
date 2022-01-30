@@ -1,10 +1,12 @@
 const puppeteer = require("puppeteer");
+import cutStrings from "./cutting-strings"
 
 const getTitles = async (page) => {
   const titles = [];
   const elements = await page.$$("div.col > div.col-limit > a > div.card > h4.card-title");
   for (elem of elements) {
     const title = await page.evaluate((el) => el.textContent, elem);
+
     titles.push(title);
   }
   return titles;
