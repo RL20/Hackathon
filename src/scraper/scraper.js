@@ -2,7 +2,89 @@ const puppeteer = require("puppeteer-extra");
 const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
 puppeteer.use(AdblockerPlugin());
 
-const getRecipes = async (page, origin) => {
+const scraper = async () => {
+  const browser = await puppeteer.launch({ headless: false });
+  const page = await browser.newPage();
+  await page.setViewport({
+    width: 1200,
+    height: 800,
+  });
+
+  let allRecipes = [];
+
+  const originLinks = await getOriginLinks(page);
+
+  for (let i = 0; i < originLinks.length; i++) {
+    const originRecipes = await scrapeOriginData(page, originLinks[i]);
+    allRecipes = [...allRecipes, ...originRecipes];
+  }
+
+  console.log(allRecipes.length);
+  console.log(allRecipes);
+
+  await browser.close();
+};
+
+scraper();
+
+async function scrapeOriginData(page, originURL) {
+  await page.goto(originURL);
+
+  const buttonSelector = "ul.paging-toolbar > li:last-child";
+
+  const titleSelector = "div.col-last-box > div > h4";
+
+  const currentOrigin = await page.$eval(titleSelector, (e) => e.innerText);
+
+  let recipes = [];
+
+  if (!(await isSelector(page, buttonSelector))) {
+    // Single Page
+    await scrollToBottom(page);
+    recipes = await getRecipes(page, currentOrigin);
+  } else {
+    // Multi Page
+    let i = 0;
+    while ((await isNextButton(page, buttonSelector)) && i < 2) {
+      console.log(i);
+      await page.waitForTimeout(1000);
+      await scrollToBottom(page);
+      recipes = [...recipes, ...(await getRecipes(page, currentOrigin))];
+      page.click(buttonSelector);
+      await page.waitForTimeout(1000);
+      i++;
+    }
+  }
+
+  return recipes;
+}
+
+async function isSelector(page, selector) {
+  return await page.$(selector);
+}
+
+async function isNextButton(page, selector) {
+  return await page.$eval(selector, (el) => {
+    return el.querySelector("a")?.innerText?.includes("הבא");
+  });
+}
+
+async function getOriginLinks(page) {
+  await page.goto(`https://www.foodsdictionary.co.il/Recipes/Kitchen`);
+  const linksArray = await page.evaluate(() => {
+    let linksArray = [];
+    const linkHolders = document.querySelectorAll(".col-4 ");
+    for (let i = 0; i < linkHolders.length; i++) {
+      const link = linkHolders[i];
+      const resultLink = link.querySelector("a").href;
+      linksArray.push(resultLink);
+    }
+    return linksArray;
+  });
+  return linksArray;
+}
+
+async function getRecipes(page, origin) {
   const recipes = await page.evaluate((origin) => {
     let recipes = [];
     const recipeHolders = document.querySelectorAll("div.col-limit");
@@ -19,47 +101,7 @@ const getRecipes = async (page, origin) => {
     return recipes;
   }, origin);
   return recipes;
-};
-
-const scraper = async () => {
-  const browser = await puppeteer.launch({ headless: true });
-  const page = await browser.newPage();
-  await page.goto("https://www.foodsdictionary.co.il/Recipes/Kitchen/39/");
-  await page.setViewport({
-    width: 1200,
-    height: 800,
-  });
-
-  const buttonSelector = "ul.paging-toolbar > li:last-child";
-
-  const titleSelector = "div.col-last-box > div > h4";
-
-  const currentOrigin = await page.$eval(titleSelector, (e) => e.innerText);
-
-  let recipes = [];
-
-  if (!(await isSelector(page, buttonSelector))) {
-    // Single Page
-    await scrollToBottom(page);
-    recipes = await getRecipes(page, currentOrigin);
-  } else {
-    // Multi Page
-    while (await isNextButton(page, buttonSelector)) {
-      console.log(currentOrigin);
-      await page.waitForTimeout(1000);
-      await scrollToBottom(page);
-      recipes = [...recipes, ...(await getRecipes(page, currentOrigin))];
-      page.click(buttonSelector);
-      await page.waitForTimeout(1000);
-    }
-  }
-
-  console.log(recipes);
-
-  await browser.close();
-};
-
-scraper();
+}
 
 async function scrollToBottom(page) {
   const distance = 100; // distance to scroll by
@@ -74,14 +116,4 @@ async function scrollToBottom(page) {
     }, distance);
     await page.waitForTimeout(delay);
   }
-}
-
-async function isSelector(page, selector) {
-  return await page.$(selector);
-}
-
-async function isNextButton(page, selector) {
-  return await page.$eval(selector, (el) => {
-    return el.querySelector("a")?.innerText?.includes("הבא");
-  });
 }
