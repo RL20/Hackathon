@@ -3,7 +3,7 @@ const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
 puppeteer.use(AdblockerPlugin());
 
 const scraper = async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.setViewport({
     width: 1200,
@@ -23,9 +23,11 @@ const scraper = async () => {
   console.log(allRecipes);
 
   await browser.close();
+
+  return allRecipes;
 };
 
-scraper();
+// scraper();
 
 async function scrapeOriginData(page, originURL) {
   await page.goto(originURL);
@@ -45,8 +47,7 @@ async function scrapeOriginData(page, originURL) {
   } else {
     // Multi Page
     let i = 0;
-    while ((await isNextButton(page, buttonSelector)) && i < 2) {
-      console.log(i);
+    while ((await isNextButton(page, buttonSelector)) && i < 1) {
       await page.waitForTimeout(1000);
       await scrollToBottom(page);
       recipes = [...recipes, ...(await getRecipes(page, currentOrigin))];
@@ -117,3 +118,5 @@ async function scrollToBottom(page) {
     await page.waitForTimeout(delay);
   }
 }
+
+module.exports = scraper;
