@@ -13,7 +13,9 @@ app.use("/cards", cardRouter); //user router
 const port = process.env.PORT || 9000;
 
 const publicPath = path.join(__dirname, "client/build");
+
 app.use(express.static(publicPath));
+
 app.get("/users", (req, res) => {});
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(publicPath, "index.html"));
