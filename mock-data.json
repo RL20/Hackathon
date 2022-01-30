@@ -19,5 +19,26 @@
         "recipeUrl": "https://www.foodsdictionary.co.il/Recipes/10931",
         "title": "רול לזניה מטוגן עם גבינה",
         "origin": "איטלקי"
+    },
+    {
+        "id": 4,
+        "image": "https://st1.foodsd.co.il/Images/Recipes/xxl/Recipe-10760-p4cei5oq4p2n2zl6.jpg",
+        "recipeUrl": "https://www.foodsdictionary.co.il/Recipes/10760",
+        "title": "קובה סלק פיקנטית ברוטב סמיך",
+        "origin": "עיראקי"
+    },
+    {
+        "id": 5,
+        "image": "https://st1.foodsd.co.il/Images/Recipes/xxl/Recipe-10242-RNpOgvJOcYZuviwI.jpg",
+        "recipeUrl": "https://www.foodsdictionary.co.il/Recipes/10242",
+        "title": "קובה בורגול מטוגנת עם בשר טחון",
+        "origin": "עיראקי"
+    },
+    {
+        "id": 6,
+        "image": "https://st1.foodsd.co.il/Images/Recipes/xxl/Recipe-10077-pIDJzhZZbFmPzfpw.jpg",
+        "recipeUrl": "https://www.foodsdictionary.co.il/Recipes/10077",
+        "title": "כעכ עיראקי",
+        "origin": "עיראקי"
     }
 ]
