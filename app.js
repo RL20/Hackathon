@@ -14,7 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/cards", cardRouter); //user router
+app.use("/api/cards", cardRouter);
+
 app.use(express.static(publicPath));
 
 app.get("/*", (req, res) => {
