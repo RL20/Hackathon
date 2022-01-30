@@ -20,6 +20,7 @@ const cutStrings = (aString) => {
     return newArr;
 }
 
+//SIVANN
 
 cutStrings(testString);
 cutStrings(testString2);
