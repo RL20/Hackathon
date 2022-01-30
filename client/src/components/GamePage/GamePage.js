@@ -19,7 +19,7 @@ function GamePage() {
         </div>
         <div className="answersArea">
           <div className="answersRight">
-            <button className="answerOne" onClick={() => clickHandler}>
+            <button className="answerOne" onClick={clickHandler}>
               <h1>Answer 1</h1>
             </button>
             <button className="answerThree">
