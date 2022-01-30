@@ -16,14 +16,12 @@ function GamePage() {
 
   const getCards = async () => {
     try {
-      const { data } = await axios.get(
-        "http://localhost:9000/api/cards/random"
-      );
+      const { data } = await axios.get("http://localhost:9000/api/cards/random");
       setCards(data[cardId]);
-      setRightAnswer(data[cardId].origin)
+      setRightAnswer(data[cardId].origin);
       // setCardId(prev => prev + 1)
     } catch (e) {
-      throw new Error;
+      throw new Error();
       // console.log(e);
     }
   };
@@ -44,33 +42,7 @@ function GamePage() {
         <div className="dishTitle">
           <h1>Dish Title</h1>
         </div>
-<<<<<<< HEAD
         <Buttons />
-=======
-        <div className="answersArea">
-          <div className="answersRight">
-            <button className="answerOne" onClick={clickHandler}>
-              <h1>Answer 1</h1>
-            </button>
-            <button className="answerThree">
-              <h1>Answer 3</h1>
-            </button>
-          </div>
-          <div className="timer">
-            <h1>
-              <Timer />
-            </h1>
-          </div>
-          <div className="answersLeft">
-            <button className="answerTwo">
-              <h1>Answer 2</h1>
-            </button>
-            <button className="answerFour">
-              <h1>Answer 4</h1>
-            </button>
-          </div>
-        </div>
->>>>>>> main
       </div>
     </div>
   );
