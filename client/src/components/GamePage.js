@@ -3,7 +3,6 @@ import { RouterDom, Route, Link } from "react-router-dom";
 import Timer from "./Timer";
 
 function GamePage() {
-
   return (
     <div className="outline">
       <div className="appPage">
