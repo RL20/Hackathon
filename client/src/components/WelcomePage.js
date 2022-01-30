@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RouterDom, Route, Link, BrowserRouter } from "react-router-dom"
 
-function GamePage() {
+function WelcomePage() {
 
     return (
         <div className="outline">
@@ -21,4 +21,4 @@ function GamePage() {
     )
 }
 
-export default GamePage;
+export default WelcomePage;
