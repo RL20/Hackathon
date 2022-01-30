@@ -1,38 +1,82 @@
+*{
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.outline{
+  background-color: aqua;
+  height: 100vh;
+  padding: .5rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.appPage{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: firebrick;
+  height: 100%;
 }
-
-.App-link {
-  color: #61dafb;
+.image{
+  background-color: forestgreen;
+  border: aqua .5rem solid;
+  height: 50%;
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  transition: ease-in-out .5s;
+}
+.image button:hover{
+  transition: ease-in-out .5s;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+.dishTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6%;
+  width: 50%;
+  border: aqua.5rem solid;
+}
+.answersArea{
+  border: aqua .5rem solid;
+  height: 35%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.answersArea button{
+  height: 8rem;
+  width: 24rem;
+}
+.answersRight{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.timer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: aqua .5rem solid;
+  width: 6rem;
+  height: 6rem;
+}
+.answersLeft{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
