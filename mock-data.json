@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "image": "https://st1.foodsd.co.il/Images/Recipes/xxl/Recipe-10974-86dt1w77j6xsqt1t.jpg",
+        "recipeUrl": "https://www.foodsdictionary.co.il/Recipes/10974",
+        "title": "סלט בוראטה",
+        "origin": "איטלקי"
+    },
+    {
+        "id": 2,
+        "image": "https://st1.foodsd.co.il/Images/Recipes/xxl/Recipe-11015-vxt5hbo3olyl47ys.jpg",
+        "recipeUrl": "https://www.foodsdictionary.co.il/Recipes/11015",
+        "title": "סלט עגבניות עם בוראטה",
+        "origin": "איטלקי"
+    },
+    {
+        "id": 3,
+        "image": "https://st1.foodsd.co.il/Images/Recipes/xxl/Recipe-10931-3q78hrdlsrz6bobo.jpg",
+        "recipeUrl": "https://www.foodsdictionary.co.il/Recipes/10931",
+        "title": "רול לזניה מטוגן עם גבינה",
+        "origin": "איטלקי"
+    }
+]
