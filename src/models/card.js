@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
 // const validator = require("validator");
 // const bcrypt = require("bcryptjs");
-// id,
-// image,
-// recipeUrl,
-// title: "סלט בוראטה",
-// origin:"איטלקי"
+// ("imageUrl");
+// ("title");
+// ("recipeUrl");
+// ("recipeDescription");
+// ("origin");
 const userSchema = new mongoose.Schema({
-  id: {
+  imageUrl: {
     type: String,
     required: true,
-    unique: true,
   },
-  image: {
+  title: {
     type: String,
     required: true,
   },
@@ -20,7 +19,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  title: {
+  recipeDescription: {
     type: String,
     required: true,
   },
