@@ -1,26 +1,37 @@
 // const testString = "סלט איטלקי";
 //TODO: function sould receive 2 params - aString, stringToRemove
  
+
+//test:
 const testString = "בוראטה איטלקית עם עגבניות";
 const testString2 = "סנדוויץ עיראקי";
-const testString3 = "בוראטה איטלקית";
+const testString3 = "איטליה איטלקי באגט עגבניות";
+const testString4 = "איט מרק בשר איטלקי";
+const testString5 = "עיראק מרק שמן";
 
 const VAL = "איטל";
-const stringToRemove = VAL.split("").reverse().join("");
+const VAL2 = "עיראק";
 
-const cutStrings = (aString) => {
+const stringToRemove = (val)=>{
+   return val.split("").reverse().join("");
+}
+
+const cutStrings = (aString,toRemove) => {
+    const strToRemove =stringToRemove(toRemove);
     const reversedStringArr = aString.split("").reverse().join("").split(" ");
     const newArr = [];
     reversedStringArr.forEach((word) => {
-        if (!word.includes(stringToRemove)) {
+        if (!word.includes(strToRemove)) {
             newArr.push(word);
         }
     })
-    console.log(newArr);
-    return newArr;
+    console.log(newArr.join(" "));
+    return newArr.join(" ");
 }
 
-//SIVANN
 
-cutStrings(testString);
-cutStrings(testString2);
+cutStrings(testString,VAL);
+cutStrings(testString2,VAL2);
+cutStrings(testString3,VAL);
+cutStrings(testString4,VAL);
+cutStrings(testString5,VAL2);
