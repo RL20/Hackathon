@@ -1,3 +1,5 @@
+import axios from "axios";
+
 let baseURL;
 
 if (process.env.NODE_ENV === "development") {
@@ -7,4 +9,8 @@ if (process.env.NODE_ENV === "production") {
   baseURL = "";
 }
 
-export default baseURL;
+const cardsAPI = axios.create({
+  baseURL,
+});
+
+export default cardsAPI;

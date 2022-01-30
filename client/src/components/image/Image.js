@@ -1,14 +1,12 @@
 import React from "react";
 
-
-const Image = ({data}) => {
-    console.log(data);
-    const image = data.imageUrl;
-    return (
-        <div>
-            <img src={image}/>
-        </div>
-    );
-}
+const Image = ({ imageUrl }) => {
+  console.log(imageUrl);
+  return (
+    <div>
+      <img src={imageUrl} />
+    </div>
+  );
+};
 
 export default Image;
