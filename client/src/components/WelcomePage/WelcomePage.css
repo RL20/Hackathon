@@ -1,0 +1,8 @@
+.welcomePage {
+    background-image: url('../../img/jerusalem.jpg');
+    background-size: 100% 100%;
+    background-blend-mode: soft-light;
+    background-color: #131313;
+    opacity: 0.9;
+    color: cornsilk;
+}

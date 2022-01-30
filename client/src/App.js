@@ -1,7 +1,7 @@
-import { BrowserRouter, Route, Link } from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import './App.css';
-import WelcomePage from './components/WelcomePage'
-import GamePage from './components/GamePage';
+import WelcomePage from "./components/WelcomePage/WelcomePage";
+import GamePage from "./components/GamePage/GamePage";
 
 function App() {
   return (

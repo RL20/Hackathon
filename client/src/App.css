@@ -6,7 +6,7 @@
   text-align: center;
 }
 .outline{
-  background-color: aqua;
+  background-color: rgb(0, 0, 0);
   height: 100vh;
   padding: .5rem;
 }
@@ -16,12 +16,16 @@
   justify-content: center;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: firebrick;
   height: 100%;
+  background-image: url('../../client/src/img/jerusalem.jpg');
+  background-size: 100% 100%;
+  background-blend-mode: soft-light;
+  background-color: #474545;
+  opacity: 0.9;
 }
 .image{
   background-color: forestgreen;
-  border: aqua .5rem solid;
+  border: rgb(255, 255, 255) .5rem solid;
   height: 50%;
   width: 50%;
   display: flex;
@@ -47,11 +51,10 @@
   align-items: center;
   height: 6%;
   width: 50%;
-  border: aqua.5rem solid;
+  color: #f8f6f2;
   transition: ease-in-out 0.5s;
 }
 .answersArea{
-  border: aqua .5rem solid;
   height: 35%;
   width: 50%;
   display: flex;
@@ -62,6 +65,7 @@
 .answersArea button{
   height: 8rem;
   width: 24rem;
+  cursor: pointer;
 }
 .answersRight{
   display: flex;
@@ -72,9 +76,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: aqua .5rem solid;
+  border: rgb(255, 255, 255) .5rem solid;
   width: 6rem;
   height: 6rem;
+  color: #ff2424;
 }
 .answersLeft{
   display: flex;
@@ -84,7 +89,7 @@
 
 /* Welcome Page */
 .welcomePage {
-  border: aqua .5rem solid;
+  border: rgb(255, 255, 255) .5rem solid;
   width: 90%;
   height: 90%;
   display: flex;
@@ -102,8 +107,9 @@
   animation: pulse;
   animation-duration: 4s;
   animation-iteration-count: infinite;
-  background-color: firebrick;
+  background-color: rgb(149, 7, 7);
   color: tan;
+  cursor: pointer;
 }
 @keyframes pulse{
   0% {
@@ -113,8 +119,8 @@
   50%{
     height: 5.3rem;
     width: 16.3rem;
-    background-color: #ff3131;
-    color: #a18b6e;
+    background-color: #ee1414;
+    color: #f8f6f2;
   }
   100% {
     height: 5rem;
