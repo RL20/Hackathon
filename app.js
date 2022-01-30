@@ -5,8 +5,10 @@ require("./src/db/mongoose");
 const app = express();
 app.use(cors());
 const userRouter = require("./src/routers/userRouter");
+const cardRouter = require("./src/routers/cardRouter");
 app.use(express.json());
 app.use("", userRouter); //user router
+app.use("/cards", cardRouter); //user router
 
 const port = process.env.PORT || 9000;
 
