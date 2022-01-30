@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
-import { RouterDom, Route, Link } from "react-router-dom";
+import React from "react";
 import Timer from "../Timer/Timer";
 
-
 function GamePage() {
+  const clickHandler = () => {
+    console.log("click");
+  };
 
   return (
     <div className="outline">
