@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useRef, useEffect } from "react";
 import { RouterDom, Route, Link } from "react-router-dom";
 import axios from "axios";
@@ -32,15 +31,6 @@ function GamePage() {
   useEffect(() => {
     getCards();
   }, []);
-=======
-import React from "react";
-import Timer from "../Timer/Timer";
-
-function GamePage() {
-  const clickHandler = () => {
-    console.log("click");
-  };
->>>>>>> main
 
   return (
     <div className="outline">
