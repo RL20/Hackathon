@@ -25,20 +25,26 @@
 }
 .image{
   border: rgb(255, 255, 255) .5rem solid;
-  height: 50%;
-  width: 50%;
+  height: 344px;
+  width: 453px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  /* background-size: 100% 100%; */
+  background-size: 100% 100%;
+  object-fit: fill;
 }
 .image button{
   display: flex;
+  position: fixed;
   justify-content: center;
   align-items: center;
   width: 3rem;
   height: 3rem;
   transition: ease-in-out .5s;
+  z-index: 10;
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }
 .image button:hover{
   transition: ease-in-out .5s;
@@ -55,12 +61,12 @@
   transition: ease-in-out 0.5s;
 }
 .answersArea{
-  height: 35%;
-  width: 50%;
+  height: 85%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+
 }
 .answersArea button{
   height: 8rem;
@@ -76,9 +82,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: rgb(255, 255, 255) .5rem solid;
+  border: rgb(233, 9, 9) .5rem solid;
+  border-radius: 50%;
   width: 6rem;
   height: 6rem;
+  background-color: wheat;
   color: #ff2424;
 }
 .answersLeft{
