@@ -1,8 +1,9 @@
 const stringToRemove = (val) => {
-    return val.split("").join("");
-}
+  return val.split("").join("");
+};
 
 const cutStrings = (aString, toRemove) => {
+
     const strToRemove = stringToRemove(toRemove);
     const reversedStringArr = aString.split("").join("").split(" ");
     const newArr = [];
@@ -37,10 +38,17 @@ const filterFunc = (origin, strin) => {
             return cutStrings(strin, "מקסיק");
         default:
             break;
+
+  const strToRemove = stringToRemove(toRemove);
+  const reversedStringArr = aString.split("").join("").split(" ");
+  const newArr = [];
+  reversedStringArr.forEach((word) => {
+    if (!word.includes(strToRemove)) {
+      newArr.push(word);
+
     }
-}
+  });
+  return newArr.join(" ");
+};
 
-// console.log(filterFunc("מקסיקני", "אוכל מקסיקני"));
 module.exports = { filterFunc };
-
-
