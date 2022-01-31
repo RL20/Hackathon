@@ -1,56 +1,59 @@
 import React, { useEffect, useState } from "react";
 import Timer from "../Timer/Timer";
 
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
 const randomAnswers = ["ישראלי", "איטלקי", "דרוזי", "תימני", "אמריקאי", "עיראקי"];
 
-const Buttons = ({ correctAnswer }) => {
+const Buttons = ({ correctAnswer, answerClickHandler }) => {
   const [answers, setAnswers] = useState([]);
 
-  const randomizeAnswers = () => {
-    const wrongAnswers = randomAnswers.filter((answer) => answer !== correctAnswer);
-    //shuffle wrongs
-    const shuffledAnswers = [
-      { answer: wrongAnswers[0], correct: false },
-      { answer: wrongAnswers[1], correct: false },
-      { answer: wrongAnswers[2], correct: false },
-      { answer: correctAnswer, correct: true },
-    ];
-    //shuffle again
-    setAnswers(shuffledAnswers);
-  };
-
   useEffect(() => {
+    const randomizeAnswers = () => {
+      let wrongAnswers = randomAnswers.filter((answer) => answer !== correctAnswer);
+      wrongAnswers = shuffle(wrongAnswers);
+      let shuffledAnswers = [
+        { answer: wrongAnswers[0], correct: false },
+        { answer: wrongAnswers[1], correct: false },
+        { answer: wrongAnswers[2], correct: false },
+        { answer: correctAnswer, correct: true },
+      ];
+      shuffledAnswers = shuffle(shuffledAnswers);
+      setAnswers(shuffledAnswers);
+    };
     randomizeAnswers();
-  }, [randomAnswers, correctAnswer]);
+  }, [correctAnswer]);
 
-  const clickHandler = () => {};
+  const clickHandler = (answer) => {
+    answerClickHandler(answer);
+  };
 
   return (
     <>
       {answers && (
-        <div>
-          <div className="answersArea">
-            <div className="answersRight">
-              <button className="answerOne" onClick={() => clickHandler}>
-                <h1>{answers[0]?.answer}</h1>
-              </button>
-              <button className="answerThree">
-                <h1>{answers[1]?.answer}</h1>
-              </button>
-            </div>
-            <div className="timer">
+        <div className="answersArea">
+          <div className="answersRight">
+            <button className="answerOne" onClick={() => clickHandler(answers[0])}>
+              <h1>{answers[0]?.answer}</h1>
+            </button>
+            <button className="answerThree" onClick={() => clickHandler(answers[1])}>
+              <h1>{answers[1]?.answer}</h1>
+            </button>
+          </div>
+          {/* <div className="timer">
               <h1>
                 <Timer />
               </h1>
-            </div>
-            <div className="answersLeft">
-              <button className="answerTwo">
-                <h1>{answers[2]?.answer}</h1>
-              </button>
-              <button className="answerFour">
-                <h1>{answers[3]?.answer}</h1>
-              </button>
-            </div>
+            </div> */}
+          <div className="answersLeft">
+            <button className="answerTwo" onClick={() => clickHandler(answers[2])}>
+              <h1>{answers[2]?.answer}</h1>
+            </button>
+            <button className="answerFour" onClick={() => clickHandler(answers[3])}>
+              <h1>{answers[3]?.answer}</h1>
+            </button>
           </div>
         </div>
       )}
