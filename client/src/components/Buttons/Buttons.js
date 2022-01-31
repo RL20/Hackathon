@@ -5,7 +5,26 @@ function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-const randomAnswers = ["ישראלי", "איטלקי", "דרוזי", "תימני", "אמריקאי", "עיראקי"];
+const randomAnswers = [
+  "ישראלי",
+  "איטלקי",
+  "דרוזי",
+  "תימני",
+  "אמריקאי",
+  "עיראקי",
+  "יווני",
+  "רוסי",
+  "טורקי",
+  "אפריקאי",
+  "בוכרי",
+  "ארגנטינאי",
+  "אסייאתי",
+  "הונגרי",
+  "ערבי",
+  "תאילנדי",
+  "רומני",
+  "מרוקאי",
+];
 
 const Buttons = ({ correctAnswer, answerClickHandler }) => {
   const [answers, setAnswers] = useState([]);

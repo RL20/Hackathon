@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const schedule = require("node-schedule");
 const replaceCollection = require("./src/scraper/service.js");
 const cardRouter = require("./src/routers/cardRouter");
 
@@ -26,4 +27,4 @@ app.listen(port, () => {
   console.log("listening on port " + port);
 });
 
-// replaceCollection();
+schedule.scheduleJob("0 0 * * *", () => replaceCollection()); // run everyday at midnight
