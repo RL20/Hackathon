@@ -33,29 +33,27 @@ const Buttons = ({ correctAnswer, answerClickHandler }) => {
   return (
     <>
       {answers && (
-        <div>
-          <div className="answersArea">
-            <div className="answersRight">
-              <button className="answerOne" onClick={() => clickHandler(answers[0])}>
-                <h1>{answers[0]?.answer}</h1>
-              </button>
-              <button className="answerThree" onClick={() => clickHandler(answers[1])}>
-                <h1>{answers[1]?.answer}</h1>
-              </button>
-            </div>
-            {/* <div className="timer">
+        <div className="answersArea">
+          <div className="answersRight">
+            <button className="answerOne" onClick={() => clickHandler(answers[0])}>
+              <h1>{answers[0]?.answer}</h1>
+            </button>
+            <button className="answerThree" onClick={() => clickHandler(answers[1])}>
+              <h1>{answers[1]?.answer}</h1>
+            </button>
+          </div>
+          {/* <div className="timer">
               <h1>
                 <Timer />
               </h1>
             </div> */}
-            <div className="answersLeft">
-              <button className="answerTwo" onClick={() => clickHandler(answers[2])}>
-                <h1>{answers[2]?.answer}</h1>
-              </button>
-              <button className="answerFour" onClick={() => clickHandler(answers[3])}>
-                <h1>{answers[3]?.answer}</h1>
-              </button>
-            </div>
+          <div className="answersLeft">
+            <button className="answerTwo" onClick={() => clickHandler(answers[2])}>
+              <h1>{answers[2]?.answer}</h1>
+            </button>
+            <button className="answerFour" onClick={() => clickHandler(answers[3])}>
+              <h1>{answers[3]?.answer}</h1>
+            </button>
           </div>
         </div>
       )}
