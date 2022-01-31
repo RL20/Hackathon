@@ -51,7 +51,7 @@ function GamePage() {
       {currentCard && (
         <div className="outline">
           <div className="appPage">
-            <h1 style={{ color: "red" }}>{score}</h1>
+            <div className="score">{score}</div>
             <div className="image">
               <Image imageUrl={currentCard?.imageUrl} />
               <button onClick={() => setShowHint(true)}>

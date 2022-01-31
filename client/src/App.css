@@ -1,57 +1,66 @@
-*{
+* {
   box-sizing: border-box;
 }
 
 .App {
   text-align: center;
 }
-.outline{
+.outline {
   background-color: rgb(0, 0, 0);
   height: 100vh;
-  padding: .5rem;
+  padding: 0.5rem;
 }
-.appPage{
+.appPage {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 1.5rem;
   height: 100%;
-  background-image: url('../../client/src/img/jerusalem.jpg');
+  background-image: url("../../client/src/img/jerusalem.jpg");
   background-size: 100% 100%;
   background-blend-mode: soft-light;
   background-color: #474545;
   opacity: 0.9;
 }
-.image{
-  border: rgb(255, 255, 255) .5rem solid;
-  height: 344px;
-  width: 453px;
+.image {
+  border: rgb(255, 255, 255) 0.5rem solid;
+  position: relative;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   background-size: 100% 100%;
   object-fit: fill;
 }
-.image button{
+
+.imageHolder {
+  display: block;
+  width: 700px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.image button {
   display: flex;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   justify-content: center;
   align-items: center;
   width: 3rem;
   height: 3rem;
-  transition: ease-in-out .5s;
+  transition: ease-in-out 0.5s;
   z-index: 10;
   cursor: pointer;
   background-color: black;
   color: white;
 }
-.image button:hover{
-  transition: ease-in-out .5s;
+.image button:hover {
+  transition: ease-in-out 0.5s;
   height: 3.3rem;
   width: 3.3rem;
 }
-.dishTitle{
+.dishTitle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,36 +69,35 @@
   color: #f8f6f2;
   transition: ease-in-out 0.5s;
 }
-.answersArea{
+.answersArea {
   height: 85%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.answersArea button{
+.answersArea button {
   height: 8rem;
   width: 24rem;
   cursor: pointer;
 }
-.answersRight{
+.answersRight {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.timer{
+.timer {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: rgb(233, 9, 9) .5rem solid;
+  border: rgb(233, 9, 9) 0.5rem solid;
   border-radius: 50%;
   width: 6rem;
   height: 6rem;
   background-color: wheat;
   color: #ff2424;
 }
-.answersLeft{
+.answersLeft {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -97,7 +105,7 @@
 
 /* Welcome Page */
 .welcomePage {
-  border: rgb(255, 255, 255) .5rem solid;
+  border: rgb(255, 255, 255) 0.5rem solid;
   width: 90%;
   height: 90%;
   display: flex;
@@ -106,10 +114,10 @@
   flex-direction: column;
   background-color: azure;
 }
-.gameRules{
+.gameRules {
   width: 70%;
 }
-.startButton{
+.startButton {
   height: 5rem;
   width: 16rem;
   animation: pulse;
@@ -119,12 +127,12 @@
   color: tan;
   cursor: pointer;
 }
-@keyframes pulse{
+@keyframes pulse {
   0% {
     height: 5rem;
     width: 16rem;
   }
-  50%{
+  50% {
     height: 5.3rem;
     width: 16.3rem;
     background-color: #ee1414;
@@ -134,5 +142,23 @@
     height: 5rem;
     width: 16rem;
   }
+}
 
+.dishTitle {
+  height: 250px;
+}
+
+.score {
+  font-size: 2rem;
+  background-color: firebrick;
+  color: #f8f6f2;
+  border: rgb(255, 255, 255) 0.5rem solid;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  min-width: 5rem;
+  min-height: 5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
