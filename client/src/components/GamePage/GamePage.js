@@ -6,6 +6,9 @@ import Buttons from "../Buttons/Buttons";
 function GamePage() {
   const [cards, setCards] = useState([]);
   const [currentCard, setCurrentCard] = useState({});
+  const [score, setScore] = useState(0);
+  const [showHint, setShowHint] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   const getCards = async () => {
     try {
@@ -22,10 +25,12 @@ function GamePage() {
   }, []);
 
   const answerClickHandler = (answer) => {
+    if (isGameOver) return;
     if (answer.correct) {
-      console.log("Correct answer");
+      const score = showHint ? 5 : 10;
+      setScore((prev) => prev + score);
     } else {
-      console.log("Wrong Answer");
+      console.log("Wrong");
     }
     nextCurrentCard();
   };
@@ -33,9 +38,11 @@ function GamePage() {
   const nextCurrentCard = () => {
     let index = cards.indexOf(currentCard);
     if (index >= cards.length - 1) {
+      setIsGameOver(true);
       console.log("game over");
       return;
     }
+    setShowHint(false);
     setCurrentCard(cards[++index]);
   };
 
@@ -44,14 +51,15 @@ function GamePage() {
       {currentCard && (
         <div className="outline">
           <div className="appPage">
+            <h1 style={{ color: "red" }}>{score}</h1>
             <div className="image">
               <Image imageUrl={currentCard?.imageUrl} />
-              <button>
+              <button onClick={() => setShowHint(true)}>
                 <h1>?</h1>
               </button>
             </div>
             <div className="dishTitle">
-              <h1>{currentCard?.title}</h1>
+              <h1>{showHint ? currentCard?.title : ""}</h1>
             </div>
             <Buttons correctAnswer={currentCard?.origin} answerClickHandler={answerClickHandler} />
           </div>
