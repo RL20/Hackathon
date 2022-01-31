@@ -34,13 +34,45 @@ const filterFunc = (origin, string) => {
       return cutStrings(string, "סיני");
     case "מקסיקני":
       return cutStrings(string, "מקסיק");
+    case "טריפוליטאי":
+      return cutStrings(strin, "טריפול");
+    case "צרפתי":
+      return cutStrings(strin, "צרפת");
+    case "אמריקאי":
+      return cutStrings(strin, "אמריק");
+    case "מרוקאי":
+      return cutStrings(strin, "מרוק");
+    case "הודי":
+      return cutStrings(strin, "הוד");
+    case "יפני":
+      return cutStrings(strin, "יפ");
+    case "רומני":
+      return cutStrings(strin, "רומנ");
+    case "ספרדי":
+      return cutStrings(strin, "ספרד");
+    case "תאילנדי":
+      return cutStrings(strin, "תאי");
+    case "הונגרי":
+      return cutStrings(strin, "הונג");
+    case "אסייתי":
+      return cutStrings(strin, "אסי");
+    case "ארגנטינאי":
+      return cutStrings(strin, "ארגנ");
+    case "בוכרי":
+      return cutStrings(strin, "בוכר");
+    case "זרוזי":
+      return cutStrings(strin, "דרוז");
+    case "אפריקאי":
+      return cutStrings(strin, "אפרי");
+    case "טורקי":
+      return cutStrings(strin, "טורק");
+    case "רוסי":
+      return cutStrings(strin, "רוס");
+    case "יווני":
+      return cutStrings(strin, "יוו");
     default:
       return string;
   }
 };
 
-const origin = "גרוזיני/גיאורגי";
-const string = "מאפה חצ'פורי גיאורגי חם וטעים בגרסה קצת אחרת ויותר קלה להכנה מהגרסה המקורית";
-
-console.log(filterFunc(origin, string));
 module.exports = { filterFunc };
