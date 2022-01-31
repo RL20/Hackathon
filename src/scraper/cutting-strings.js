@@ -35,41 +35,41 @@ const filterFunc = (origin, string) => {
     case "מקסיקני":
       return cutStrings(string, "מקסיק");
     case "טריפוליטאי":
-      return cutStrings(strin, "טריפול");
+      return cutStrings(string, "טריפול");
     case "צרפתי":
-      return cutStrings(strin, "צרפת");
+      return cutStrings(string, "צרפת");
     case "אמריקאי":
-      return cutStrings(strin, "אמריק");
+      return cutStrings(string, "אמריק");
     case "מרוקאי":
-      return cutStrings(strin, "מרוק");
+      return cutStrings(string, "מרוק");
     case "הודי":
-      return cutStrings(strin, "הוד");
+      return cutStrings(string, "הוד");
     case "יפני":
-      return cutStrings(strin, "יפ");
+      return cutStrings(string, "יפ");
     case "רומני":
-      return cutStrings(strin, "רומנ");
+      return cutStrings(string, "רומנ");
     case "ספרדי":
-      return cutStrings(strin, "ספרד");
+      return cutStrings(string, "ספרד");
     case "תאילנדי":
-      return cutStrings(strin, "תאי");
+      return cutStrings(string, "תאי");
     case "הונגרי":
-      return cutStrings(strin, "הונג");
+      return cutStrings(string, "הונג");
     case "אסייתי":
-      return cutStrings(strin, "אסי");
+      return cutStrings(string, "אסי");
     case "ארגנטינאי":
-      return cutStrings(strin, "ארגנ");
+      return cutStrings(string, "ארגנ");
     case "בוכרי":
-      return cutStrings(strin, "בוכר");
+      return cutStrings(string, "בוכר");
     case "זרוזי":
-      return cutStrings(strin, "דרוז");
+      return cutStrings(string, "דרוז");
     case "אפריקאי":
-      return cutStrings(strin, "אפרי");
+      return cutStrings(string, "אפרי");
     case "טורקי":
-      return cutStrings(strin, "טורק");
+      return cutStrings(string, "טורק");
     case "רוסי":
-      return cutStrings(strin, "רוס");
+      return cutStrings(string, "רוס");
     case "יווני":
-      return cutStrings(strin, "יוו");
+      return cutStrings(string, "יוו");
     default:
       return string;
   }
