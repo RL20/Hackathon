@@ -1,5 +1,6 @@
 const puppeteer = require("puppeteer-extra");
 const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
+const { filterFunc } = require("./cutting-strings.js");
 puppeteer.use(AdblockerPlugin());
 
 const scraper = async () => {
@@ -9,6 +10,8 @@ const scraper = async () => {
     width: 1200,
     height: 800,
   });
+
+  await page.exposeFunction("myFunc", myFunc);
 
   let allRecipes = [];
 
@@ -27,7 +30,7 @@ const scraper = async () => {
   return allRecipes;
 };
 
-// scraper();
+scraper();
 
 async function scrapeOriginData(page, originURL) {
   await page.goto(originURL);
@@ -93,6 +96,7 @@ async function getRecipes(page, origin) {
       const recipeHolder = recipeHolders[i];
       const imageUrl = recipeHolder.querySelector("a > div > div.img-hover-ef > img").src;
       const title = recipeHolder.querySelector("a > div > h4").innerText;
+      // const filteredTitle = filterFunc(origin, title);
       const recipeDescription = recipeHolder.querySelector("a > div > p.card-text").innerText;
       const recipeUrl = recipeHolder.querySelector("a").href;
 
@@ -101,6 +105,7 @@ async function getRecipes(page, origin) {
 
     return recipes;
   }, origin);
+  console.log(recipes);
   return recipes;
 }
 
