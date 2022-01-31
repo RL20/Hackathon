@@ -17,18 +17,27 @@ function GamePage() {
     }
   };
 
-  const nextCurrentCard = () => {
-    const index = cards.indexOf(currentCard);
-    if (index >= cards.length) {
-      console.log("game over");
-      return;
-    }
-    setCurrentCard(cards[index++]);
-  };
-
   useEffect(() => {
     getCards();
   }, []);
+
+  const answerClickHandler = (answer) => {
+    if (answer.correct) {
+      console.log("Correct answer");
+    } else {
+      console.log("Wrong Answer");
+    }
+    nextCurrentCard();
+  };
+
+  const nextCurrentCard = () => {
+    let index = cards.indexOf(currentCard);
+    if (index >= cards.length - 1) {
+      console.log("game over");
+      return;
+    }
+    setCurrentCard(cards[++index]);
+  };
 
   return (
     <>
@@ -44,7 +53,7 @@ function GamePage() {
             <div className="dishTitle">
               <h1>{currentCard?.title}</h1>
             </div>
-            <Buttons correctAnswer={currentCard?.origin} />
+            <Buttons correctAnswer={currentCard?.origin} answerClickHandler={answerClickHandler} />
           </div>
         </div>
       )}
