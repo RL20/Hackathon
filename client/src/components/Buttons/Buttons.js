@@ -10,22 +10,21 @@ const randomAnswers = ["ישראלי", "איטלקי", "דרוזי", "תימני
 const Buttons = ({ correctAnswer, answerClickHandler }) => {
   const [answers, setAnswers] = useState([]);
 
-  const randomizeAnswers = () => {
-    let wrongAnswers = randomAnswers.filter((answer) => answer !== correctAnswer);
-    wrongAnswers = shuffle(wrongAnswers);
-    let shuffledAnswers = [
-      { answer: wrongAnswers[0], correct: false },
-      { answer: wrongAnswers[1], correct: false },
-      { answer: wrongAnswers[2], correct: false },
-      { answer: correctAnswer, correct: true },
-    ];
-    shuffledAnswers = shuffle(shuffledAnswers);
-    setAnswers(shuffledAnswers);
-  };
-
   useEffect(() => {
+    const randomizeAnswers = () => {
+      let wrongAnswers = randomAnswers.filter((answer) => answer !== correctAnswer);
+      wrongAnswers = shuffle(wrongAnswers);
+      let shuffledAnswers = [
+        { answer: wrongAnswers[0], correct: false },
+        { answer: wrongAnswers[1], correct: false },
+        { answer: wrongAnswers[2], correct: false },
+        { answer: correctAnswer, correct: true },
+      ];
+      shuffledAnswers = shuffle(shuffledAnswers);
+      setAnswers(shuffledAnswers);
+    };
     randomizeAnswers();
-  }, [randomAnswers, correctAnswer]);
+  }, [correctAnswer]);
 
   const clickHandler = (answer) => {
     answerClickHandler(answer);
