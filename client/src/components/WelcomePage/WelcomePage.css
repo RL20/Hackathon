@@ -1,8 +1,16 @@
 .welcomePage {
-    background-image: url('../../img/jerusalem.jpg');
-    background-size: 100% 100%;
-    background-blend-mode: soft-light;
-    background-color: #131313;
-    opacity: 0.9;
-    color: cornsilk;
+  background-image: url("../../img/jerusalem.jpg");
+  background-size: 100% 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  background-blend-mode: soft-light;
+  background-color: #131313;
+  opacity: 0.9;
+  color: cornsilk;
+}
+
+.buttonLink {
+  min-height: 5.3rem;
+  min-width: 16.3rem;
 }
