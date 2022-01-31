@@ -30,7 +30,7 @@ const scraper = async () => {
   return allRecipes;
 };
 
-scraper();
+// scraper();
 
 async function scrapeOriginData(page, originURL) {
   await page.goto(originURL);
@@ -105,7 +105,7 @@ async function getRecipes(page, origin) {
 
     return recipes;
   }, origin);
-  console.log(recipes);
+  console.log("page complete");
   return recipes;
 }
 
