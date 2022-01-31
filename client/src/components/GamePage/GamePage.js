@@ -35,7 +35,7 @@ function GamePage() {
       {currentCard && (
         <div className="outline">
           <div className="appPage">
-            <div className="image">
+            <div className="image" style={{objectFit: "fill"}}>
               <Image imageUrl={currentCard?.imageUrl} />
               <button>
                 <h1>?</h1>
