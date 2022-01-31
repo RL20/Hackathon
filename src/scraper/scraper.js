@@ -11,7 +11,7 @@ const scraper = async () => {
     height: 800,
   });
 
-  await page.exposeFunction("myFunc", myFunc);
+  await page.exposeFunction("filterFunc", filterFunc);
 
   let allRecipes = [];
 
@@ -89,18 +89,18 @@ async function getOriginLinks(page) {
 }
 
 async function getRecipes(page, origin) {
-  const recipes = await page.evaluate((origin) => {
+  const recipes = await page.evaluate(async (origin) => {
     let recipes = [];
     const recipeHolders = document.querySelectorAll("div.col-limit");
     for (let i = 0; i < recipeHolders.length; i++) {
       const recipeHolder = recipeHolders[i];
       const imageUrl = recipeHolder.querySelector("a > div > div.img-hover-ef > img").src;
       const title = recipeHolder.querySelector("a > div > h4").innerText;
-      // const filteredTitle = filterFunc(origin, title);
+      const filteredTitle = await filterFunc(origin, title);
       const recipeDescription = recipeHolder.querySelector("a > div > p.card-text").innerText;
       const recipeUrl = recipeHolder.querySelector("a").href;
 
-      recipes.push({ imageUrl, title, recipeUrl, recipeDescription, origin: origin });
+      recipes.push({ imageUrl, title: filteredTitle, recipeUrl, recipeDescription, origin: origin });
     }
 
     return recipes;
