@@ -59,7 +59,7 @@ function GamePage() {
               </button>
             </div>
             <div className="dishTitle">
-              <h1>{showHint ? currentCard?.title : ""}</h1>
+              <h1>{isGameOver ? "Game Over" : showHint ? currentCard?.title : ""}</h1>
             </div>
             <Buttons correctAnswer={currentCard?.origin} answerClickHandler={answerClickHandler} />
           </div>
